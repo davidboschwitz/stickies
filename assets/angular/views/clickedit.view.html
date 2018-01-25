@@ -1,0 +1,9 @@
+<div>
+    <strong ng-if="!editing" ng-click="click(true)">{{value}}</strong>
+    <div class="input-group" ng-if="!!editing">
+        <input class="form-control" ng-model="text">
+        <div class="input-group-append">
+            <button class="btn btn-outline-success" ng-click="click(false); save()">Save</button>
+        </div>
+    </div>
+</div>

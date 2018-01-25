@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Stickies</title>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body ng-app="stickesApp">
+
+    <div class="container-fluid" ng-controller="indexController">
+        <div ng-view />
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <!-- Bootstrap + jQuery + popper -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular-route.js"></script>
+    <script type="text/javascript" src="assets/angular/stickiesApp.js"></script>
+    <script type="text/javascript" src="assets/angular/config/router.config.js"></script>
+    <script type="text/javascript" src="assets/angular/services/orchestration.service.js"></script>
+    <script type="text/javascript" src="assets/angular/directives/ngenter.directive.js"></script>
+    <script type="text/javascript" src="assets/angular/directives/clickedit.directive.js"></script>
+    <script type="text/javascript" src="assets/angular/controllers/index.controller.js"></script>
+    <script type="text/javascript" src="assets/angular/controllers/home.controller.js"></script>
+    <script type="text/javascript" src="assets/angular/controllers/sticky.controller.js"></script>
+
+</body>
+
+</html>

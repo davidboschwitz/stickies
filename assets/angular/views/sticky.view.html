@@ -1,0 +1,46 @@
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">sticky/{{stickyID}}</h4>
+    <p>Description</p>
+    <hr>
+    <div>
+        <button type="button" class="btn btn-primary" ng-click="load()">Reload</button>
+        <button type="button" class="btn btn-primary" ng-click="addPad()">Add Pad</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col" ng-repeat="sticky in data.stickies">
+        <div class="card pop-border" ng-class=[sticky.color]>
+            <div class="card-header">
+                <!-- <click-edit ng-model="sticky.title" ></click-edit> -->
+                <strong ng-if="!sticky.$$editingTitle" ng-click="sticky.$$editingTitle = true">{{sticky.title}}</strong>
+                <div class="input-group" ng-if="!!sticky.$$editingTitle">
+                    <input class="form-control" ng-model="sticky.title">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" ng-click="sticky.$$editingTitle = false; save()">Save</button>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" ng-repeat="item in sticky.list">
+                    <div ng-if="!item.$$editing">
+                        <input type="checkbox" ng-model="item.checked" />&nbsp;
+                        <strong ng-click="item.$$editing = true">{{item.text}}</strong>
+                    </div>
+                    <div class="input-group" ng-if="item.$$editing">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" ng-model="item.checked" />
+                            </div>
+                        </div>
+                        <input class="form-control" ng-model="item.text">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-success" ng-click="item.$$editing = false; save()">Save</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-outline-success" ng-click="sticky.list.push({text:'new item',checked:false})">Add Item</button>
+        </div>
+    </div>
+</div>
