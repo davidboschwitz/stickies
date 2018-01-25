@@ -3,13 +3,13 @@
     stickiesApp
         .service('orchestration', function($http, $window) {
             var $ = $window.jQuery;
-            let URL_ROOT = '/';
+            let URL_ROOT = '/stickies/backend/';
 
             return {
                 load: function(id) {
                     console.debug(`orchestration.load(${id})`);
                     let promise = new Promise((resolve, reject) => {
-                        let URL = `/backend/get.php?id=${id}`;
+                        let URL = URL_ROOT + `get.php?id=${id}`;
                         $http.get(URL)
                             .then(function(response) {
                                     //success
@@ -28,7 +28,7 @@
                 save: function(id, data) {
                     console.debug(`orchestration.save(${id})`);
                     let promise = new Promise((resolve, reject) => {
-                        let URL = `/backend/post.php?id=${id}`;
+                        let URL = URL_ROOT + `post.php?id=${id}`;
                         $http({
                                 method: 'POST',
                                 url: URL,
