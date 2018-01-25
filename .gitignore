@@ -1,0 +1,3 @@
+# ignore data files
+/backend/data/*
+/backend/data/example.json
