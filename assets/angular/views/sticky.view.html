@@ -15,9 +15,9 @@
                 <!-- <click-edit ng-model="sticky.title" ></click-edit> -->
                 <strong ng-if="!sticky.$$editingTitle" ng-click="sticky.$$editingTitle = true">{{sticky.title}}</strong>
                 <div class="input-group" ng-if="!!sticky.$$editingTitle">
-                    <input class="form-control" ng-model="sticky.title">
+                    <input class="form-control" ng-model="sticky.title" ng-enter="sticky.$$editingTitle = false; save()">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-success" ng-click="sticky.$$editingTitle = false; save()" ng-enter="sticky.$$editingTitle = false; save()">Save</button>
+                        <button class="btn btn-outline-success" ng-click="sticky.$$editingTitle = false; save()">Save</button>
                     </div>
                 </div>
             </div>
@@ -33,9 +33,9 @@
                                 <input type="checkbox" ng-model="item.checked" />
                             </div>
                         </div>
-                        <input class="form-control" ng-model="item.text">
+                        <input class="form-control" ng-model="item.text" ng-enter="item.$$editing = false; save()">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-success" ng-click="item.$$editing = false; save()" ng-enter="sticky.$$editingTitle = false; save()">Save</button>
+                            <button class="btn btn-outline-success" ng-click="item.$$editing = false; save()">Save</button>
                         </div>
                     </div>
                 </li>
