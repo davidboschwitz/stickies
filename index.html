@@ -9,10 +9,28 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        .background-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+            transition: 1s opacity;
+        }
+    </style>
 </head>
 
 <body ng-app="stickesApp">
-
+    <div ng-controller="backgroundController">
+      <img ng-src="backgroundURL" class="background-image" />
+    </div>
     <div class="container-fluid" ng-controller="indexController">
         <div ng-view />
     </div>
@@ -33,6 +51,7 @@
     <script type="text/javascript" src="assets/angular/directives/ngenter.directive.js"></script>
     <script type="text/javascript" src="assets/angular/directives/clickedit.directive.js"></script>
     <script type="text/javascript" src="assets/angular/controllers/index.controller.js"></script>
+    <script type="text/javascript" src="assets/angular/controllers/background.controller.js"></script>
     <script type="text/javascript" src="assets/angular/controllers/home.controller.js"></script>
     <script type="text/javascript" src="assets/angular/controllers/sticky.controller.js"></script>
 

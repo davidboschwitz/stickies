@@ -57,6 +57,24 @@
                     });
                     return promise;
                 },
+                getBackground: function() {
+                    console.debug(`orchestration.getBackground()`);
+                    let URL = URL_ROOT + `backgrounds.json`;
+                    var images;
+                    $http.get(URL)
+                        .then(function(response) {
+                                //success
+                                console.debug(response);
+                                images = response.data.images;
+                            },
+                            function(response) {
+                                //error callback
+                                console.error(response)
+                                alert("error loading background");
+                            }
+                        );
+                    return images[Math.random() * images.length];
+                },
                 newGUID: function() {
                     return Math.random().toString(36).replace(/[^a-z1-9]+/g, '').substr(0, 5);
                 }
