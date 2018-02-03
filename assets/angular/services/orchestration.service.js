@@ -30,7 +30,7 @@
                     console.debug(`orchestration.save(${id})`);
                     let URL = URL_ROOT + `post.php?id=${id}`;
 
-                    data['time'] = (new Date()).toJson();
+                    data['time'] = (new Date()).toJSON();
 
                     let promise = new Promise((resolve, reject) => {
                         $http({
