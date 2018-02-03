@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col" ng-repeat="sticky in data.stickies">
-        <div class="card pop-border" ng-class=[sticky.color]>
+        <div class="card pop-border" ng-class="[sticky.color]" style="min-width:250px;">
             <div class="card-header">
                 <!-- <click-edit ng-model="sticky.title" ></click-edit> -->
                 <strong ng-if="!sticky.$$editingTitle" ng-click="sticky.$$editingTitle = true">{{sticky.title}}</strong>
