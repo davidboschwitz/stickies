@@ -3,7 +3,7 @@
     stickiesApp
         .service('orchestration', function($http, $window) {
             var jQuery = $window.jQuery;
-            let URL_ROOT = '/stickies/backend/';
+            let URL_ROOT = 'https://vps.boschwitz.me/stickies/backend/';
 
             return {
                 load: function(id) {
