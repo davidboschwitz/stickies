@@ -9,9 +9,10 @@
                 orchestration.load(stickyID).then(function(response) {
                     if (!!response.data.error) {
                         alert("error loading!");
-                        return
+                        return;
                     }
-                    $scope.data = response.data;
+                    if ($scope.data.time != response.data.time)
+                        $scope.data = response.data;
                 });
             }
             $scope.load = load;
@@ -20,23 +21,24 @@
                 orchestration.save(stickyID, $scope.data).then(function(response) {
                     if (!response.data.success) {
                         alert("error saving!");
+                        return;
                     }
                 });
             }
             $scope.save = save;
 
             function addPad() {
-              if(!$scope.data){
-                $scope.data = {};
-                $scope.data.stickies = [];
-              }
-              $scope.data.stickies.push({
-                title: 'new sticky',
-                list:[{
-                  text: 'new item',
-                  checked: false
-                }]
-              });
+                if (!$scope.data) {
+                    $scope.data = {};
+                    $scope.data.stickies = [];
+                }
+                $scope.data.stickies.push({
+                    title: 'new sticky',
+                    list: [{
+                        text: 'new item',
+                        checked: false
+                    }]
+                });
             }
             $scope.addPad = addPad;
 
