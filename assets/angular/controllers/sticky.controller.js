@@ -7,11 +7,11 @@
 
             function load() {
                 orchestration.load(stickyID).then(function(response) {
-                    if (!!response.data.error) {
+                    if (!responde.data || !!response.data.error) {
                         alert("error loading!");
                         return;
                     }
-                    if ($scope.data.time != response.data.time)
+                    if (!!$scope.data && $scope.data.time != response.data.time)
                         $scope.data = response.data;
                 });
             }
