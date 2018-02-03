@@ -11,7 +11,7 @@
                         alert("error loading!");
                         return;
                     }
-                    if (!!$scope.data && $scope.data.time != response.data.time)
+                    if (!!$scope.data && ($scope.data.time == undefined $scope.data.time != response.data.time))
                         $scope.data = response.data;
                 });
             }
