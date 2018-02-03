@@ -7,7 +7,7 @@
 
             function load() {
                 orchestration.load(stickyID).then(function(response) {
-                    if (!responde.data || !!response.data.error) {
+                    if (!response.data || !!response.data.error) {
                         alert("error loading!");
                         return;
                     }
