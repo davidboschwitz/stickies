@@ -42,7 +42,15 @@
             }
             $scope.addPad = addPad;
 
-            load
+            var tick = function() {
+              $scope.clock = Date.now();
+            }
+            tick();
+            $interval(function(){
+              tick();
+              $interval(tick, 60000);
+            }, 60000 - (Date.now() % 60000));
+
             $timeout(load, 1)
             $timeout(load, 200)
             $interval(load, 30 * 1000);
