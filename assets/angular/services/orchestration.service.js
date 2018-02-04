@@ -59,21 +59,23 @@
                 },
                 getBackground: function() {
                     console.debug(`orchestration.getBackground()`);
-                    let URL = URL_ROOT + `backgrounds.json`;
-                    var images;
-                    $http.get(URL)
-                        .then(function(response) {
-                                //success
-                                console.debug(response);
-                                images = response.data.images;
-                            },
-                            function(response) {
-                                //error callback
-                                console.error(response)
-                                alert("error loading background");
-                            }
-                        );
-                    return images[Math.random() * images.length];
+                    let URL = URL_ROOT + `get.php?id=backgrounds`;
+
+                    let promise = new Promise((resolve, reject) => {
+                        $http.get(URL)
+                            .then(function(response) {
+                                    //success
+                                    console.debug(response);
+                                    resolve(response);
+                                },
+                                function(response) {
+                                    //error callback
+                                    console.error(response)
+                                    resolve(response);
+                                }
+                            );
+                    });
+                    return promise;
                 },
                 newGUID: function() {
                     return Math.random().toString(36).replace(/[^a-z1-9]+/g, '').substr(0, 5);

@@ -11,7 +11,7 @@
                 //     text: '=',
                 //     save: '&'
                 // },
-                link: function(scope, ngModel){
+                link: function(scope, ngModel, attrs){
                   scope.editing = false;
                   console.log(scope);
                   scope.click = function(b){

@@ -4,7 +4,42 @@
 }
 
 .card {
-  /*fixes for mobile viewing, allows for cards in row->col->card to wrap nicely*/
-  min-width:250px;
-  margin-bottom:18px;
+    /*fixes for mobile viewing, allows for cards in row->col->card to wrap nicely*/
+    min-width: 250px;
+    margin-bottom: 18px;
+    /* make card transparent */
+    background-color: #ffffff60;
+}
+
+.list-group-item {
+    background-color: #ffffff60;
+}
+
+.alert-transparent {
+    color: #ffffff;
+    background-color: #8a8a8a7a;
+    border-color: #ffffff00;
+}
+
+.bg-only {
+    transform: translateY(500%);
+    transition: 1s ease-in-out;
+}
+
+body {
+    background-color: black;
+}
+
+.background-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    /*min-height: 100%;*/
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 2s opacity;
 }

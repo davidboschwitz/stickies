@@ -42,8 +42,9 @@
             }
             $scope.addPad = addPad;
 
-            $timeout(load, 500)
-            $timeout(load, 1000)
+            load
+            $timeout(load, 1)
+            $timeout(load, 200)
             $interval(load, 30 * 1000);
 
 

@@ -1,6 +1,14 @@
-<div class="alert alert-success" role="alert">
+<div class="alert alert-transparent" role="alert">
     <h4 class="alert-heading">sticky/{{stickyID}}</h4>
-    <p>Description</p>
+    <div ng-if="!data.$$editingDescription">
+        <p ng-click="data.$$editingDescription = true">{{data.description || 'New Description'}}</p>
+    </div>
+    <div class="input-group" ng-if="data.$$editingDescription">
+        <input class="form-control" ng-model="data.description" ng-enter="data.$$editingDescription = false; save()">
+        <div class="input-group-append">
+            <button class="btn btn-outline-success" ng-click="data.$$editingDescription = false; save()">Save</button>
+        </div>
+    </div>
     <hr>
     <div>
         <button type="button" class="btn btn-primary" ng-click="load()">Reload</button>
