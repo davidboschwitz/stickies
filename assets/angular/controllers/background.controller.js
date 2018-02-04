@@ -15,7 +15,7 @@
                 });
             }
 
-            if ($window.location.pathname == "/index.html")
+            if ($window.location.pathname == "/index.html" || $window.location.pathname == "/stickies/index.html")
                 loadBackground();
 
 
