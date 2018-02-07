@@ -1,4 +1,4 @@
-<div class="alert alert-transparent" role="alert">
+<div class="alert alert-transparent" role="alert" key-control>
     <div class="row">
         <div class="col">
             <h4 class="alert-heading">sticky/{{stickyID}}</h4>
@@ -40,7 +40,7 @@
                 <li class="list-group-item" ng-repeat="item in sticky.list">
                     <div ng-if="!item.$$editing">
                         <input type="checkbox" ng-model="item.checked" />&nbsp;
-                        <span ng-click="item.$$editing = true">{{item.text}}</span>
+                        <span ng-click="item.$$editing = true" ng-bind-html="item.text | stickyFilter"></span>
                     </div>
                     <div class="input-group" ng-if="item.$$editing">
                         <div class="input-group-prepend">
