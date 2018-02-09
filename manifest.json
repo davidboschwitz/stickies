@@ -4,7 +4,10 @@
     "version": "0.1.1",
     "incognito": "split",
     "chrome_url_overrides": {
-        "newtab": "index.html#/sticky/david/"
+        "newtab": "chromenewtab.html"
     },
-    "manifest_version": 1
+    "permissions": [
+        "storage"
+    ],
+    "manifest_version": 2
 }
