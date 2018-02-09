@@ -4,9 +4,18 @@
 
     service('inactivity', function($window, $interval) {
         var ticks = 0;
-        var obj = {
+        var inactivityOverQueue = [];
+        var inactivity = {
             reset: function() {
+                if (ticks > 300) {
+                    $window.location.reload();
+                    return;
+                }
                 ticks = 0;
+                if (ticks > 30) {
+                    for (func in inactivityOverQueue)
+                        func();
+                }
             },
             tick: function() {
                 ticks++;
@@ -15,20 +24,23 @@
                 return ticks;
             },
             isInactive: function() {
-                return ticks > 120;
+                return ticks > 30;
+            },
+            queueFunction: function(func) {
+                inactivityOverQueue.push(func);
             }
         };
 
-        window.onload = obj.reset;
-        window.onmousemove = obj.reset;
-        window.onmousedown = obj.reset; // catches touchscreen presses
-        window.onclick = obj.reset; // catches touchpad clicks
-        window.onscroll = obj.reset; // catches scrolling with arrow keys
-        window.onkeypress = obj.reset;
+        window.onload = inactivity.reset;
+        window.onmousemove = inactivity.reset;
+        window.onmousedown = inactivity.reset;
+        window.onclick = inactivity.reset;
+        window.onscroll = inactivity.reset;
+        window.onkeypress = inactivity.reset;
 
-        $interval(obj.tick, 1000);
+        $interval(inactivity.tick, 1000);
 
-        return obj;
+        return inactivity;
     });
 
 })();
